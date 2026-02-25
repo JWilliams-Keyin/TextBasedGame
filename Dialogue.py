@@ -1,0 +1,1 @@
+# A file that contains all of the text shown to the player #
