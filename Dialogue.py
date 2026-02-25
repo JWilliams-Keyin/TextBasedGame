@@ -182,6 +182,10 @@ def starving():
     print('feeling extremely hungry')
     time.sleep(4)
 
+def longDay():
+    print('Wow, it really has been a long day')
+    time.sleep(3)
+
 def atHome():
     print('As you near your shelter, you notice people standing guard outside!')
     time.sleep(3)
