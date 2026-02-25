@@ -5,6 +5,8 @@ print('WARNING: DO NOT PRESS ENTER UNTIL A NUMBER IS TYPED. DO NOT INPUT ANY NUM
 ######## Imported Functions ########
 import time
 from random import randint
+import Dialogue
+import InputValidation
 ####################################
 
 ######## Variables Definitions ########
@@ -40,26 +42,7 @@ start = int(input('Type 1 to start the game ')) # Variable that starts the game 
 # It also contains the code for choosing a path #
 
 if start == int(1):
-  print('It is a very distant future')
-  time.sleep(2)
-  print('The world has been thrown into chaos and society has fallen')
-  time.sleep(2)
-  print('You are a lone wanderer, trying to survive in this cruel world')
-  time.sleep(3)
-  print('You are extremely hungry, but you ran out of food the night before')
-  time.sleep(3)
-  print('You figure that it is time to get up and find something to eat')
-  time.sleep(3)
-  print('You have a handmade bow with 3 arrows and a machete')
-  time.sleep(3)
-  print('Behind your shelter is a vast forest')
-  time.sleep(3)
-  print('There is an abandoned grocery store a few miles away, but most of the food is inedible')
-  time.sleep(3)
-  print('Where will you get your food?')
-  time.sleep(2)
-  print('Go hunting in the forest (1)')
-  print('Scavenge at the abandoned grocery store (2)')
+  Dialogue.startingText()
   path = int(input('Type the number of the path that you want to take '))
 ################################
 
@@ -68,36 +51,11 @@ if start == int(1):
 # This loop contains all of the first choices for each path #
 
 if path == int(1):
-  print('You exit your shelter, bow in hand, to go hunting')
-  time.sleep(3)
-  print('It took a long time, but you finally found a deer, grazing in an open part of the forest')
-  time.sleep(3)
-  print('It would be risky, but you could take a shot at it')
-  time.sleep(3)
-  print('One shot might not kill it though, so you may have to use multiple arrows')
-  time.sleep(3)
-  print('What will you do?')
-  time.sleep(2)
-  print('Shoot it in the leg, then go in for the kill (1)')
-  print('Go for the neck (2)')
+  Dialogue.deerHunt()
   deer = int(input('Type the number of what you want to do '))
   hunt = True
 elif path == int(2):
-  print('Even though it has been abandoned and likely picked clean, you hold out hope for the grocery store')
-  time.sleep(4)
-  print('After a long walk, you finally arrive')
-  time.sleep(3)
-  print('All of the windows are broken and thick green foliage has started growing on the walls')
-  time.sleep(3)
-  print('Thankfully, there seems to be nobody around, so you casually walk into the grocery store')
-  time.sleep(3)
-  print('You look around and see that there are three places to go: the aisles to your left, the clothing shop to your right, and a floral department next to the front door')
-  time.sleep(6)
-  print('Where will you go?')
-  time.sleep(2)
-  print('The aisles (1)')
-  print('The clothing store (2)')
-  print('The floral department1 (3)')
+  Dialogue.enterGroceryStore()
   department1 = int(input('Type the number of the place you want to go to '))
   store = True
 ####################################
@@ -109,43 +67,20 @@ elif path == int(2):
 if hunt == True:
   if deer == int(1):
     arrows = int(1)
-    print('You hit the deer in the leg!')
-    time.sleep(2)
-    print('It starts to limp away, so you take another shot and it collapses')
-    time.sleep(3)
-    print('You approach the deer and finally kill it with your machete')
-    time.sleep(3)
-    print('After butchering it for a while, you head home with some fresh meat and deer pelt')
-    time.sleep(4)
+    Dialogue.legHit
     go_home = True
     success = int(1)
   elif deer == int(2):
     arrows = 2
-    print('You hold your breath as your heart races at the tought of potentially missing your shot')
-    time.sleep(4)
-    print('You draw your bow, pull back, and...')
-    time.sleep(3)
-    print('Fire!')
+    Dialogue.neckShot()
     hit = randint(1, 2)
     time.sleep(2)
     if hit == int(1):
-      print('Yes! You hit the deer in the neck!')
-      time.sleep(2)
-      print('You see it fall over and have a sigh of relief')
-      time.sleep(3)
-      print('The shot you hit killed the deer instantly')
-      time.sleep(3)
-      print('After butchering it for a while, you head home with some fresh meat and deer pelt')
-      time.sleep(4)
+      Dialogue.neckHit()
       go_home = True 
       success = int(1)
     elif hit == int(2):
-      print('No! You missed the deer!')
-      time.sleep(2)
-      print('It runs away into the forest')
-      time.sleep(2)
-      print('Feeling defeated, you decide to make your way back home to think of a new plan')
-      time.sleep(3)
+      Dialogue.neckMiss()
       go_home = True
       success = int(2)
 ##############################
