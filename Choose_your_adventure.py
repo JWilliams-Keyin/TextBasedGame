@@ -220,76 +220,49 @@ if store == True:
 # This section contains the code for the end of the game, which is switched up depending on which path you take #
 
 if go_home == True:
-  print('Wow, it really has been a long day')
-  time.sleep(3)
+  Dialogue.longDay()
  
   if success == int(1):
-    print('Trudging through the forest, you feel yourself getting even hungrier as you think about cooking the deer')
-    time.sleep(4)
+    Dialogue.huntingSuccess()
   elif success == int(2):
-    print('Trudging through the forest, you dwell on how you will get food now that your hunting attempt has failed') 
-    time.sleep(4)
+    Dialogue.huntingFail()
 
-  print('As you near your shelter, you notice people standing guard outside!')
-  time.sleep(3)
-  print('You quickly dart behind a nearby bush on a hill to observe')
-  time.sleep(3)
+  Dialogue.atHome
 
   if success == int(1):
-    print('You quietly lay down your deer meat and pelt in the bush for safe keeping')
-    time.sleep(3)
+    Dialogue.atHomeHuntingSuccess()
   elif bag == int(1):
-    print('You quietly lay down your bag of cans in the bush for safe keeping')
-    time.sleep(3)
+    Dialogue.atHomeBag()
   elif bag == int(0):
-    print('You take all of the cans out of your pockets and lay them in the bush for later')
-    time.sleep(3)
+    Dialogue.atHomeCans()
 
-  print('You carefully peer through the leaves and see that there are three bandits standing guard outside your shelter')
-  time.sleep(4)
-  print('It seems these bandits are not very discrete, as you can hear loud footsteps and banging from your shelter')
-  time.sleep(4)
-  print("You can't make out what they are saying, but you can hear the voices of two people inside")
-  time.sleep(3)
-  print('You take inventory of what you have at the moment to deal with this situation')
-  time.sleep(3)
-  print('You have...')
-  time.sleep(2)
+  Dialogue.takeInventoryOne()
   
   if arrows == int(2):
-    print('two arrows for your bow,')
-    time.sleep(2)
+    Dialogue.twoArrows()
   elif arrows == int(1):
-    print('one arrow for your bow,')
-    time.sleep(2)
+    Dialogue.oneArrow()
   elif knife == int(1):
-    print('the knife from the store,')
-    time.sleep(2)
+    Dialogue.knife()
   elif hungry == int(1):
-    print('energy from the can of fruit, ')
-    time.sleep(2)
+    Dialogue.energy()
 
-  print('your machete,')
-  time.sleep(2)
-  print('and the knowledge of your shelter')
-  time.sleep(2)
-  print('What will you do?')
-  time.sleep(3)
+  Dialogue.takeInventoryTwo()
 
   if arrows == int(2):
-    print('Pick off two guards with your bow, then get the last one with your machete (1)')
+    Dialogue.twoArrowsChoice()
     outcome = int(1)
   elif arrows == int(1):
-    print('Pick off one guard with your bow, then get the last two with your machete (1)')
+    Dialogue.oneArrowChoice
     outcome = int(2)
   elif hungry == int(1):
-    print('Swiftly run in and get them all with your knife (1)')
+    Dialogue.knifeChoice
     outcome = int(3)
   else:
     outcome =int(4)
   
-  print('Try with just your machete (2)')
-  print('Give up and find another shelter (3)')
+  Dialogue.macheteChoice()
+  Dialogue.leaveChoice()
 
   if outcome == int(1):
     plan1 = int(input('Type the number of the way you want to deal with the situation '))
@@ -302,125 +275,31 @@ if go_home == True:
 
   # Ending 1 #
   if plan1 == int(1):
-    print('You wait until all of the guards are split up, then quickly shoot two of them, killing them instantly')
-    time.sleep(4)
-    print('You then sneak up to the last guard and pick him off with your machete')
-    time.sleep(3)
-    print('You wait until you think the coast is clear to go inside')
-    time.sleep(3)
-    print('As you sneak into the shelter, you can hear the two bandits in the other room, as if they are clueing up their raid')
-    time.sleep(4)
-    print('Quickly, you charge into the room and tackle one of the bandits, slashing them with your machete')
-    time.sleep(3)
-    print('Before you can get up, the other bandit takes out his knife and lands three quick slashes on your back')
-    time.sleep(4)
-    print('Though you are in pain, you swing the machete at the bandit and manage to finally kill him')
-    time.sleep(3)
-    print('It took some effort, but you managed to defend your shelter!')
-    time.sleep(3)
-    print('(Marksman Ending)')
+    Dialogue.marksmanEnding()
   # Ending 2 #
   elif plan2 == int(1):
-    print('You wait for the guards to separate, then pick off one of them with your bow')
-    time.sleep(3)
-    print('Then, you sneak behind another guard and take him out with the machete')
-    time.sleep(3)
-    print('You turn the corner to get the last guard when you both make eye contact')
-    time.sleep(4)
-    print('You try to quickly dash at him with the machete, but before you land the killing blow he manages to whack you over the head with his club')
-    time.sleep(4)
-    print('That hit was pretty hard, but you managed to walk out of it alive, but with your head spinning')
-    time.sleep(4)
-    print('Wearily, you wait until you think the coast is clear to go inside')
-    time.sleep(3)
-    print('As you sneak into the shelter, you can hear the two bandits in the other room, as if they are clueing up their raid')
-    time.sleep(4)
-    print('You charge in and attempt to slash one of them with your machete')
-    time.sleep(3)
-    print('But due to the hit you just took, you miss')
-    time.sleep(3)
-    print('The bandits quickly take out their weapons and overwhelm you')
-    time.sleep(3)
-    print('You perish at the hands of the bandits')
-    time.sleep(3)
-    print('(Concussion Ending)')
+    Dialogue.concussionEnding()
   # Ending 3 #
   elif plan3 == int(1):
-    print('Since you are energized, you take out your knife and quietly sprint towards one of the guards, taking him out in one fell swoop')
-    time.sleep(4)
-    print('Then, you do the same with a second guard and finally the third')
-    time.sleep(3)
-    print('With the guards swiftly taken care of, you sneak into the shelter')
-    time.sleep(3)
-    print('As you sneak into the shelter, you can hear the two bandits in the other room, as if they are clueing up their raid')
-    time.sleep(4)
-    print('Quietly, you creep towards the entrance to the other room')
-    time.sleep(3)
-    print('Then, you lunge at the first bandit and stab him with your knife, killing him instantly')
-    time.sleep(3)
-    print('With your other hand, you immediately take out your machete and kill the other bandit before he even knew what was happening')
-    time.sleep(4)
-    print('You protected your shelter masterfully!')
-    time.sleep(3)
-    print('(Swift Ninja Ending)')
+    Dialogue.swiftNinjaEnding()
   # Ending 4 #
   elif plan1 == int(2):
-    print('When the guards are separated, you sneak up to one and take him out with your machete')
-    time.sleep(3)
-    print('You try to sneak to the next guard, but you find yourself surrounded!')
-    time.sleep(3)
-    print('You try to defend yourself, but the guards call out the other two bandits and they all start to take out their weapons')
-    time.sleep(4)
-    print('Four against one, you perish at the hands of the bandits')
-    time.sleep(3)
-    print('(Cornered Ending)')
+    Dialogue.corneredEnding()
   elif plan2 == int(2):
-    print('When the guards are separated, you sneak up to one and take him out with your machete')
-    time.sleep(3)
-    print('You try to sneak to the next guard, but you find yourself surrounded!')
-    time.sleep(3)
-    print('You try to defend yourself, but the guards call out the other two bandits and they all start to take out their weapons')
-    time.sleep(4)
-    print('Four against one, you perish at the hands of the bandits')
-    time.sleep(3)
-    print('(Cornered Ending)')
+    Dialogue.corneredEnding()
   elif plan3 == int(2):
-    print('When the guards are separated, you sneak up to one and take him out with your machete')
-    time.sleep(3)
-    print('You try to sneak to the next guard, but you find yourself surrounded!')
-    time.sleep(3)
-    print('You try to defend yourself, but the guards call out the other two bandits and they all start to take out their weapons')
-    time.sleep(4)
-    print('Four against one, you perish at the hands of the bandits')
-    time.sleep(3)
-    print('(Cornered Ending)')
+    Dialogue.corneredEnding()
   elif plan4 == int(2):
-    print('When the guards are separated, you sneak up to one and take him out with your machete')
-    time.sleep(3)
-    print('You try to sneak to the next guard, but you find yourself surrounded!')
-    time.sleep(3)
-    print('You try to defend yourself, but the guards call out the other two bandits and they all start to take out their weapons')
-    time.sleep(4)
-    print('Four against one, you perish at the hands of the bandits')
-    time.sleep(3)
-    print('(Cornered Ending)')
+    Dialogue.corneredEnding()
   # Ending 5 #
   elif plan1 == int(3):
-    print('Overwhelmed by the situation, you decide to flee and leave your shelter behind')
-    time.sleep(3)
-    print('(Coward Ending)')
+    Dialogue.cowardEnding()
   elif plan2 == int(3):
-    print('Overwhelmed by the situation, you decide to flee and leave your shelter behind')
-    time.sleep(3)
-    print('(Coward Ending)')
+    Dialogue.cowardEnding()
   elif plan3 == int(3):
-    print('Overwhelmed by the situation, you decide to flee and leave your shelter behind')
-    time.sleep(3)
-    print('(Coward Ending)')
+    Dialogue.cowardEnding()
   elif plan4 == int(3):
-    print('Overwhelmed by the situation, you decide to flee and leave your shelter behind')
-    time.sleep(3)
-    print('(Coward Ending)')
+    Dialogue.cowardEnding()
 
 ##############################
 
