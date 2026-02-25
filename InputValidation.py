@@ -1,6 +1,6 @@
 # Code to validate user inputs #
 
-def inputValidation(numChoices, userInput):
+def validate(numChoices, userInput):
     loop = True
     while loop == True:
         if 0 < int(userInput) <= numChoices:
