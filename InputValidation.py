@@ -9,8 +9,10 @@ def playerInput(numChoices, prompt):
             int(userInput)
             if int(userInput) > int(numChoices):
                 print(f'Invalid input. Please input a valid number (1 - {numChoices})')
+            elif int(userInput) == 0:
+                print(f'Invalid input. Please input a valid number (1 - {numChoices})')
             else:
                 i = False
-                return userInput
         except ValueError:
             print(f'Invalid input. Please input a valid number (1 - {numChoices})')
+    return int(userInput)
