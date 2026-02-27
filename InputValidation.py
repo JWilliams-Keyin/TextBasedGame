@@ -1,13 +1,16 @@
 # Code to validate user inputs #
 
 def playerInput(numChoices, prompt):
-    loop = True
-    while loop == True:
+    i = True
+    j = True
+    while i == True:
+        userInput = input(f'{prompt} ')
         try:
-            userInput = int(input(f'{prompt} '))
-            loop = False
-            return userInput
+            int(userInput)
+            if int(userInput) > int(numChoices):
+                print(f'Invalid input. Please input a valid number (1 - {numChoices})')
+            else:
+                i = False
+                return userInput
         except ValueError:
-            print(f'Invalid input. Please input a valid number (1 - {numChoices})')
-        except 0 < int(userInput) < int(numChoices):
             print(f'Invalid input. Please input a valid number (1 - {numChoices})')
