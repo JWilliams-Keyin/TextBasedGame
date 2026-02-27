@@ -43,7 +43,7 @@ start = int(input('Type 1 to start the game ')) # Variable that starts the game 
 
 if start == int(1):
   Dialogue.startingText()
-  path = int(input('Type the number of the path that you want to take '))
+  path = InputValidation.playerInput(2, 'Type the number of the path that you want to take')
 ################################
 
 ######## First Choices Loop ########
@@ -52,11 +52,11 @@ if start == int(1):
 
 if path == int(1):
   Dialogue.deerHunt()
-  deer = int(input('Type the number of what you want to do '))
+  deer = InputValidation.playerInput(2, 'Type the number of what you want to do')
   hunt = True
 elif path == int(2):
   Dialogue.enterGroceryStore()
-  department1 = int(input('Type the number of the place you want to go to '))
+  department1 = InputValidation.playerInput(3, 'Type the number of the place you want to go to')
   store = True
 ####################################
 
