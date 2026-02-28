@@ -97,7 +97,7 @@ def enterGroceryStore():
     time.sleep(2)
     print('The aisles (1)')
     print('The clothing store (2)')
-    print('The floral department1 (3)')
+    print('The floral department (3)')
 
 def aislesText():
     print('The first aisle is labelled "Cleaning Supplies", so nothing useful there')
