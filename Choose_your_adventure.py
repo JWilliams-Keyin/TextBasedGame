@@ -1,56 +1,50 @@
-# This is an adventure game with multiple branching paths #
+# This is an adventure game with multiple branching paths. Type prompted numbers to play #
 
-######## Imported Functions ########
+# Imports #
+
 import time
 from random import randint
 import Dialogue
 import InputValidation
-####################################
+
+# Game Loop #
 
 i = True
-
 while i == True:
 
-  ######## Variables Definitions ########
-  path = int(0) # Gives the user the path that they input #
-  hunt = False # Triggers after first choice in hunting path, transitions to the rest of the path #
-  deer = int(0) # Another variable similar to the hunt variable #
-  hit = int(0) # Tracks if the user hits the deer #
-  store = False # Triggers after first choice in grocery store path, transitions to the rest of the path #
-  go_home = False # Triggers at the end of each path to transition to the ending #
-  arrows = int(3) # Set to 3 and decreases depending on what you decide to do in the hunting path #
-  success = int(0) # Variable that tracks if the player's hunt was successful or not #
-  aislesVisited = int(0) # Variable that tracks if the player has visited the aisles in the store path #
-  clothingVisited = int(0) # Variable that tracks if the player has visited the clothing store in the store path #
-  floralVisited = int(0) # Variable that tracks if the player has visited the floral department in the store path #
-  bag = int(0) # Variable that tracks if the player collected the bag in the store path #
-  knife = int(0) # Variable that tracks if the player collected the knife in the store path #
-  department = int(0) # Variable that sets the department that the player goes to #
-  clothes = int(0) # Variables that tracks if the player went to the clothing store #
-  floral = int(0) # Variable that tracks if the player went to the floral department #
-  outcome = int(0) # Determines what will be said to the player at the end of the game #
+  # Variable Definitions #
+
+  path = int(0)
+  hunt = False 
+  deer = int(0) 
+  hit = int(0)
+  store = False 
+  go_home = False 
+  arrows = int(3) 
+  success = int(0) 
+  aislesVisited = int(0) 
+  clothingVisited = int(0) 
+  floralVisited = int(0) 
+  bag = int(0) 
+  knife = int(0) 
+  department = int(0) 
+  clothes = int(0) 
+  floral = int(0)
+  outcome = int(0) 
   plan1 = int(0)
   plan2 = int(0)
   plan3 = int(0)
   plan4 = int(0)
-  # The plan variables track which way the player can end the game #
-  retry = int(0) # Variable that restarts the game #
-  start = InputValidation.playerInput(1, 'Type 1 to start the game') # Variable that starts the game #
-  #######################################
+  retry = int(0)
+  start = InputValidation.playerInput(1, 'Type 1 to start the game')
 
-  ######## Beginning Loop ########
-
-  # This loop starts the game once the user presses 1 #
-  # It also contains the code for choosing a path #
+  # Start #
 
   if start == int(1):
     Dialogue.startingText()
     path = InputValidation.playerInput(2, 'Type the number of the path that you want to take')
-  ################################
 
-  ######## First Choices Loop ########
-
-  # This loop contains all of the first choices for each path #
+  # First Choices #
 
   if path == int(1):
     Dialogue.deerHunt()
@@ -59,11 +53,8 @@ while i == True:
   elif path == int(2):
     Dialogue.enterGroceryStore()
     store = True
-  ####################################
 
-  ######## Hunting Loop ########
-
-  # This loop contains the code for the hunting path and stores the values of the variables affected by it towards the end. This will affect the final part of the game. #
+  # Hunting Path #
 
   if hunt == True:
     if deer == int(1):
@@ -84,11 +75,8 @@ while i == True:
         Dialogue.neckMiss()
         go_home = True
         success = int(2)
-  ##############################
 
-  ######## Grocery Store Loop ########
-
-  # This loop contains all of the code for the grocery store path and the values of the variables affected by it in the end #
+  # Grocery Store Path #
 
   if store == True:
     j = True
@@ -139,11 +127,8 @@ while i == True:
     if bag == int(0):
       Dialogue.lessCans()
     go_home = True
-  ####################################
 
-  ######## Ending Loops ########
-
-  # This section contains the code for the end of the game, which is switched up depending on which path you take #
+  # Endings #
 
   if go_home == True:
     Dialogue.longDay()
@@ -225,9 +210,7 @@ while i == True:
     elif plan4 == int(3):
       Dialogue.cowardEnding()
 
-  ##############################
-
-  ######## Restart Prompt #########
+  # Restart Prompt #
 
   Dialogue.restart()
   retry = InputValidation.playerInput(2, '1 to retry, 2 to quit')
