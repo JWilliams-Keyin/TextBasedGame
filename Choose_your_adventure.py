@@ -1,7 +1,5 @@
 # This is an adventure game with multiple branching paths #
 
-print('WARNING: DO NOT PRESS ENTER UNTIL A NUMBER IS TYPED. DO NOT INPUT ANY NUMBERS THAT ARE NOT PROMPTED, AS THE GAME WILL CRASH')
-
 ######## Imported Functions ########
 import time
 from random import randint
@@ -16,7 +14,6 @@ deer = int(0) # Another variable similar to the hunt variable #
 hit = int(0) # Tracks if the user hits the deer #
 store = False # Triggers after first choice in grocery store path, transitions to the rest of the path #
 go_home = False # Triggers at the end of each path to transition to the ending #
-hungry = int(0) # Variable that tracks if the user ate food in the store path #
 arrows = int(3) # Set to 3 and decreases depending on what you decide to do in the hunting path #
 success = int(0) # Variable that tracks if the player's hunt was successful or not #
 aislesVisited = int(0) # Variable that tracks if the player has visited the aisles in the store path #
@@ -169,8 +166,6 @@ if go_home == True:
     Dialogue.oneArrow()
   elif knife == int(1):
     Dialogue.knife()
-  elif hungry == int(1):
-    Dialogue.energy()
 
   Dialogue.takeInventoryTwo()
 
@@ -180,7 +175,7 @@ if go_home == True:
   elif arrows == int(1):
     Dialogue.oneArrowChoice
     outcome = int(2)
-  elif hungry == int(1):
+  elif knife == int(1):
     Dialogue.knifeChoice
     outcome = int(3)
   else:
@@ -190,13 +185,13 @@ if go_home == True:
   Dialogue.leaveChoice()
 
   if outcome == int(1):
-    plan1 = int(input('Type the number of the way you want to deal with the situation '))
+    plan1 = InputValidation.playerInput(3, 'Type the number of the way you want to deal with the situation')
   elif outcome == int(2):
-    plan2 = int(input('Type the number of the way you want to deal with the situation '))
+    plan2 = InputValidation.playerInput(3, 'Type the number of the way you want to deal with the situation')
   elif outcome == int(3):
-    plan3 = int(input('Type the number of the way you want to deal with the situation '))
+    plan3 = InputValidation.playerInput(3, 'Type the number of the way you want to deal with the situation')
   elif outcome == int(4):
-    plan4 = int(input('Type the number of the way you want to deal with the situation '))
+    plan4 = InputValidation.playerInput(3, 'Type the number of the way you want to deal with the situation')
 
   # Ending 1 #
   if plan1 == int(1):
