@@ -19,13 +19,14 @@ go_home = False # Triggers at the end of each path to transition to the ending #
 hungry = int(0) # Variable that tracks if the user ate food in the store path #
 arrows = int(3) # Set to 3 and decreases depending on what you decide to do in the hunting path #
 success = int(0) # Variable that tracks if the player's hunt was successful or not #
-visited = int(0) # Variable that tracks if the player has visited a department1 in the store path #
+aislesVisited = int(0) # Variable that tracks if the player has visited the aisles in the store path #
+clothingVisited = int(0) # Variable that tracks if the player has visited the clothing store in the store path #
+floralVisited = int(0) # Variable that tracks if the player has visited the floral department in the store path #
 bag = int(0) # Variable that tracks if the player collected the bag in the store path #
-knife = int(0) # Variable that tracks if the layer collected the knife in the store path #
-department1 = int(0) # Variable that sets the first department1 that the player goes to #
-department2 = int(0) # Variable that sets the second department1 the player wants to do to #
+knife = int(0) # Variable that tracks if the player collected the knife in the store path #
+department = int(0) # Variable that sets the department that the player goes to #
 clothes = int(0) # Variables that tracks if the player went to the clothing store #
-floral = int(0) # Variable that tracks if the player went to the floral department1 #
+floral = int(0) # Variable that tracks if the player went to the floral department #
 outcome = int(0) # Determines what will be said to the player at the end of the game #
 plan1 = int(0)
 plan2 = int(0)
@@ -33,7 +34,7 @@ plan3 = int(0)
 plan4 = int(0)
 # The plan variables track which way the player can end the game #
 retry = int(0) # Variable that restarts the game #
-start = int(input('Type 1 to start the game ')) # Variable that starts the game #
+start = InputValidation.playerInput(1, 'Type 1 to start the game') # Variable that starts the game #
 #######################################
 
 ######## Beginning Loop ########
@@ -56,7 +57,6 @@ if path == int(1):
   hunt = True
 elif path == int(2):
   Dialogue.enterGroceryStore()
-  department1 = InputValidation.playerInput(3, 'Type the number of the place you want to go to')
   store = True
 ####################################
 
@@ -90,128 +90,53 @@ if hunt == True:
 # This loop contains all of the code for the grocery store path and the values of the variables affected by it in the end #
 
 if store == True:
-  if department1 == int(2):
-    print('Since nobody else is here, you think that you may as well look around a bit')
-    time.sleep(3)
-    print('You enter the clothing store and find what looks to be the remains of an old camp')
-    time.sleep(3)
-    print('After searching around for a bit, you find a big reusable bag!')
-    clothes = 1
-    bag = int(1)
-    time.sleep(3)
-  elif department1 == int(3):
-    print('Since nobody else is here, you think you may as well look around a bit')
-    time.sleep(3)
-    print('Before you enter the department, you observe from the counter')
-    time.sleep(3)
-    print('There are many dead plants lying around in what looks to be old flower arrangements')
-    time.sleep(3)
-    print('Then, you notice a small plaque on the wall. It reads:')
-    time.sleep(3)
-    print('"Community Votes 2020 Platinum Winner, Best Florists and Flower Shops"')
-    time.sleep(3)
-    print('Huh. Whoever ran this floral department must have done a really good job')
-    time.sleep(3)
-    print('When you search the drawers behind the counter, you manage to find an unusually sharp knife!')
-    floral = int(1)
-    knife = int(1)
-    time.sleep(4)
-  
-  if clothes == int(1):
-    print('Where will you go now?')
-    time.sleep(3)
-    print('The aisles (1)')
-    print('The floral department (3)')
-    department2 = int(input('Type the number of the place you want to go to '))
-  elif floral == int(1):
-    print('Where will you go now?')
-    time.sleep(3)
-    print('The aisles (1)')
-    print('The clothing store (2)')
-    department2 = int(input('Type the number of the place you want to go to '))
+  i = True
+  while i == True:
+    Dialogue.groceryStoreChoices()
+    department = InputValidation.playerInput(4, 'Type the number of the place you want to go to')
 
-  if department2 == int(2):
-    print('You enter the clothing store and find what looks to be the remains of an old camp')
-    time.sleep(3)
-    print('After searching around for a bit, you find a big reusable bag!')
-    bag = int(1)
-    visited = int(1)
-    time.sleep(3)
-  elif department2 == int(3):
-    print('Before you enter the department, you observe from the counter')
-    time.sleep(3)
-    print('There are many dead plants lying around in what looks to be old flower arrangements')
-    time.sleep(3)
-    print('Then, you notice a small plaque on the wall. It reads:')
-    time.sleep(3)
-    print('"Community Votes 2020 Platinum Winner, Best Florists and Flower Shops"')
-    time.sleep(3)
-    print('Huh. Whoever ran this floral department must have done a really good job')
-    time.sleep(3)
-    print('When you search the drawers behind the counter, you manage to find an unusually sharp knife!')
-    knife = int(1)
-    visited = int(1)
-    time.sleep(4)
+    if department == int(1):
+      if aislesVisited == int(0):
+        Dialogue.aislesText()
+        aislesVisited = int(1)
+      elif aislesVisited == int(1):
+        Dialogue.aislesRevisited()
+      
+      if knife == int(0):
+        Dialogue.aislesCanClosed()
+      elif knife == int(1):
+        Dialogue.aislesCanOpened()
+      
+      if bag == int(0):
+        Dialogue.aislesNoBag()
+      elif bag == int(1):
+        Dialogue.aislesBag()
+    elif department == int(2):
+      if clothingVisited == int(0):
+        Dialogue.clothingText()
+        clothingVisited = int(1)
+        bag = int(1)
+      elif clothingVisited == int(1):
+        Dialogue.clothingRevisited()
+    elif department == int(3):
+      if floralVisited == int(0):
+        Dialogue.floralText()
+        floralVisited = int(1)
+        knife = int(1)
+      elif floralVisited == int(1):
+        Dialogue.floralRevisited()
+    elif department == int(4):
+      i = False
 
-  if visited == int(1):
-    print('Now that you have searched the other two departments, you decide to search the aisles')
-    department1 = int(1)
-    time.sleep(4)
-
-  if department1 == int(1):
-    print('The first aisle is labelled "Cleaning Supplies", so nothing useful there')
-    time.sleep(3)
-    print('The next two aisles are also useless, but the aisle after that has some cans left on the shelves!')
-    time.sleep(3)
-    print('There are 5 cans of fruit, 6 cans of veggies, and 3 cans of tuna')
-    time.sleep(3)
-    print('Seems like whoever lived here left before they could gather the rest of the food')
-    time.sleep(3)
-  elif department2 == int(1):
-    print('The first aisle is labelled "Cleaning Supplies", so nothing useful there')
-    time.sleep(3)
-    print('The next two aisles are also useless, but the aisle after that has some cans left on the shelves!')
-    time.sleep(3)
-    print('There are 5 cans of fruit, 6 cans of veggies, and 3 cans of tuna')
-    time.sleep(3)
-    print('Seems like whoever lived here left before they could gather the rest of the food')
-    time.sleep(3)
-
-  if knife == int(1):
-    print('Since you grabbed the knife earlier, you try to open a can of fruit')
-    time.sleep(3)
-    print('The knife was so sharp that you could stab a hole in the can and peel off the top!')
-    time.sleep(4)
-    print('You quickly eat the contents of the can')
-    time.sleep(2)
-    hungry = int(1)
-    print('You are no longer starving!')
-    time.sleep(3)
-  else:
-    print('If only you had something to open one of these cans, you are so hungry that you would crack one open right now')
-    time.sleep(4)
+  Dialogue.headHome()
 
   if bag == int(1):
-    print('Since you got the bag at the old camp, you are able to take all of the cans!')
-    time.sleep(3)
-    print('This could definetly keep you fed for a few days at least')
-    time.sleep(3)
-  else:
-    print("You don't have any bags with you, so you are only able to take two of each can")
-    time.sleep(3)
-
-  print('You head home')
-
-  if bag == int(1):
-    print('carrying all of the cans you found')
-    time.sleep(4)
+    Dialogue.bagOfCans()
   elif knife == int(1):
-    print('feeling energized')
-    time.sleep(4)
+    Dialogue.energized()
   
   if bag == int(0):
-    print('with 6 cans of food')
-    time.sleep(4)
+    Dialogue.lessCans()
   go_home = True
 ####################################
 

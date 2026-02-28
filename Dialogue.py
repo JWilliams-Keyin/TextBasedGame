@@ -95,9 +95,12 @@ def enterGroceryStore():
     time.sleep(6)
     print('Where will you go?')
     time.sleep(2)
+
+def groceryStoreChoices():
     print('The aisles (1)')
     print('The clothing store (2)')
     print('The floral department (3)')
+    print('Home (4)')
 
 def aislesText():
     print('The first aisle is labelled "Cleaning Supplies", so nothing useful there')
@@ -178,10 +181,6 @@ def energized():
     print('feeling energized')
     time.sleep(4)
 
-def starving():
-    print('feeling extremely hungry')
-    time.sleep(4)
-
 def longDay():
     print('Wow, it really has been a long day')
     time.sleep(3)
@@ -226,10 +225,6 @@ def oneArrow():
 
 def knife():
     print('the knife from the store,')
-    time.sleep(2)
-
-def energy():
-    print('energy from the can of fruit, ')
     time.sleep(2)
 
 def takeInventoryTwo():
@@ -317,17 +312,6 @@ def swiftNinjaEnding():
     print('You protected your shelter masterfully!')
     time.sleep(3)
     print('(Swift Ninja Ending)')
-
-def starvingEnding():
-    print('You take out your knife and quietly sprint towards one of the guards, taking him out in one fell swoop')
-    time.sleep(4)
-    print('Then, you do the same with a second guard, but you are starting to get sloppy')
-    time.sleep(3)
-    print('The third guard manages to get the jump on you before you can finish him off, and he beats you down')
-    time.sleep(4)
-    print('You perished at the hands of the bandits')
-    time.sleep(3)
-    print('(Starving Ending)')
 
 def corneredEnding():
     print('When the guards are separated, you sneak up to one and take him out with your machete')
