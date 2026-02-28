@@ -127,7 +127,7 @@ while i == True:
         elif floralVisited == int(1):
           Dialogue.floralRevisited()
       elif department == int(4):
-        i = False
+        j = False
 
     Dialogue.headHome()
 
@@ -180,7 +180,7 @@ while i == True:
       Dialogue.oneArrowChoice
       outcome = int(2)
     elif knife == int(1):
-      Dialogue.knifeChoice
+      Dialogue.knifeChoice()
       outcome = int(3)
     else:
       outcome =int(4)
