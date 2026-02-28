@@ -328,3 +328,6 @@ def cowardEnding():
     print('Overwhelmed by the situation, you decide to flee and leave your shelter behind')
     time.sleep(3)
     print('(Coward Ending)')
+
+def restart():
+    print('Retry?')
