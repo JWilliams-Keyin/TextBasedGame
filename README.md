@@ -1,7 +1,19 @@
 # TextBasedGame
 This is a repo containing my simple text-based game made in Python.
 
+To play:
+
+1. Click the green Code <> button and click "Download ZIP" 
+
+2. Right click the .zip file to extract it (you may need to download a tool for this on Windows, a quick Google gave me 7-Zip) 
+
+3. Open the TextBasedGame folder
+
+4. Double click the Choose_your_adventure.py file.
+
 Type the prompted numbers to proceed in the game
+
+Coding notes:
 
 This game was originally made back in my high school computer science class, so the name of the main file is inconsistant with the names of the new files I made, which use normal naming conventions. Older builds also contain excessive comments, which I removed to make the code more readable
 
