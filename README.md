@@ -5,7 +5,7 @@ To play:
 
 1. Click the green Code <> button and click "Download ZIP" 
 
-2. Right click the .zip file to extract it (you may need to download a tool for this on Windows, a quick Google gave me 7-Zip) 
+2. Go to where the file downloaded and right click the .zip file to extract it (you may need to download a tool for this on Windows, a quick Google gave me 7-Zip) 
 
 3. Open the TextBasedGame folder
 
