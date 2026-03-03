@@ -3,7 +3,7 @@ This is a repo containing my simple text-based game made in Python.
 
 To play:
 
-1. Click the green Code <> button and click "Download ZIP" 
+1. Click the green Code <> button on the main page of this repository and click "Download ZIP" 
 
 2. Go to where the file downloaded and right click the .zip file to extract it (you may need to download a tool for this on Windows, a quick Google gave me 7-Zip) 
 
